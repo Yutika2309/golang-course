@@ -1,0 +1,5 @@
+Important commands
+
+go init example.com/name-of-project <- to initialise a project as a package
+go build                            <- to actually build a package that you can directly run as an executable file
+go run                              <- running an application in the terminal with this command

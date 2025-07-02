@@ -22,11 +22,21 @@ import (
 // also there's a way to explicitly mention variables:
 
 func main() {
-	investedAmount := 1000.00 // example: if we want to explicitly also declare a variable without kw: var; we can do so with ':=' assignment operator
+	// factoring also inflation rate
+	const inflationRate = 2.5
+	// investedAmount := 1000.00 // example: if we want to explicitly also declare a variable without kw: var; we can do so with ':=' assignment operator
+
+	// if we want to dynamically allocate (thru user input):
+	var investedAmount float64
+	fmt.Print("Enter the invested amount here:")
+	fmt.Scan(&investedAmount)
+
 	var expectedReturnRate float64 = 5.5
 	var years float64 = 10
 
 	var futureValue = investedAmount * math.Pow(1+expectedReturnRate/100, years) // we are typecasting a few variables here
+	var futureValueReal = futureValue / math.Pow(1+inflationRate/100, years)
 
 	fmt.Println("Here is the future value (rounded):", math.Round(futureValue)) // printing the value in the terminal with a NEW LINE (ln does that with Print)
+	fmt.Println("Here is the inflated value (rounded):", math.Round(futureValueReal))
 }
